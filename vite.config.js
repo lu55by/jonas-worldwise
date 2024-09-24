@@ -7,6 +7,6 @@ export default defineConfig({
   server: {
     open: true,
     host: true, // Open to local network and display URL
-    // port: 3000, // Customize the port number
+    port: 5514, // Customize the port number
   },
 });
