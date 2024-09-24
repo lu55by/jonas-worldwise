@@ -1,0 +1,15 @@
+.nav {
+  background: grey;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Global selector in css modules */
+.nav :global(.active) {
+  color: white;
+  font-weight: bold;
+}

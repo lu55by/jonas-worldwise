@@ -1,10 +1,14 @@
-import NavLinks from "../components/NavLinks";
+import { Link } from "react-router-dom";
+import PageNav from "../components/PageNav";
+import AppNav from "../components/AppNav";
 
 export default function HomePage() {
   return (
     <div>
-      <NavLinks />
+      <PageNav />
+      <AppNav />
       <h1>HomePage Page!</h1>
+      <Link to="/app">Go to the app</Link>
     </div>
   );
 }

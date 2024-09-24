@@ -1,9 +1,9 @@
-import NavLinks from "../components/NavLinks";
+import PageNav from "../components/PageNav";
 
 export default function Product() {
   return (
     <div>
-      <NavLinks />
+      <PageNav />
       <h1>Product Page!</h1>
     </div>
   );
