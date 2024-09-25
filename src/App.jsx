@@ -8,6 +8,7 @@ import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import { useEffect, useState } from "react";
+import CountryList from "./components/CountryList";
 
 const URL = "http://localhost:9000";
 
@@ -21,7 +22,7 @@ function App() {
         setIsLoading(true);
         const resp = await fetch(`${URL}/cities`);
         const data = await resp.json();
-        console.log("Fetched json data -> ", data);
+        // console.log("Fetched json data -> ", data);
         setCities(data);
       } catch {
         alert("Error fetching cities");
@@ -49,7 +50,10 @@ function App() {
               path="cities"
               element={<CityList cities={cities} isLoading={isLoading} />}
             />
-            <Route path="countries" element={<p>Countries</p>} />
+            <Route
+              path="countries"
+              element={<CountryList cities={cities} isLoading={isLoading} />}
+            />
             <Route path="form" element={<p>Form</p>} />
           </Route>
         </Routes>
