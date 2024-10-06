@@ -32,7 +32,7 @@ function CitiesContext({ children }) {
     fetchCities();
   }, []);
 
-  const getCity = useCallback(async (id) => {
+  const setCity = useCallback(async (id) => {
     try {
       setIsLoading(true);
       const resp = await fetch(`${URL}/cities/${id}`);
@@ -47,7 +47,7 @@ function CitiesContext({ children }) {
   }, []);
 
   return (
-    <Context.Provider value={{ cities, isLoading, getCity, currentCity }}>
+    <Context.Provider value={{ cities, isLoading, setCity, currentCity }}>
       {children}
     </Context.Provider>
   );
