@@ -2,7 +2,9 @@ import CountryItem from "./CountryItem";
 import styles from "./CountryList.module.css";
 import Spinner from "./Spinner";
 import Message from "./Message";
-export default function CountryList({ cities, isLoading }) {
+import { useCitiesContext } from "../contexts/CitiesContext";
+export default function CountryList() {
+  const { cities, isLoading } = useCitiesContext();
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return <Message message="Please add your cities first." />;
