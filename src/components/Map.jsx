@@ -10,12 +10,21 @@ import {
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCitiesContext } from "../contexts/CitiesContext";
+import Button from "./Button";
+import { useGeolocation } from "../hooks/useGeolocation";
 export default function Map() {
   const [searchParameters] = useSearchParams();
   const [mapPosition, setMapPosition] = useState([
     40.46635901755316, -3.7133789062500004,
   ]);
   const { cities } = useCitiesContext();
+
+  const {
+    isLoading: isCurrentLocationLoading,
+    error,
+    currentPosition,
+    getCurrentPosition,
+  } = useGeolocation();
 
   const lat = searchParameters.get("lat");
   const lng = searchParameters.get("lng");
@@ -24,8 +33,21 @@ export default function Map() {
     if (lat && lng) setMapPosition([parseFloat(lat), parseFloat(lng)]);
   }, [lat, lng]);
 
+  useEffect(() => {
+    if (currentPosition.lat)
+      setMapPosition([currentPosition.lat, currentPosition.lng]);
+  }, [currentPosition]);
+
+  const isUseCurrentLocationButtonVisible =
+    !currentPosition.lat || currentPosition.lat !== mapPosition[0];
+
   return (
     <div className={styles.mapContainer}>
+      {isUseCurrentLocationButtonVisible && (
+        <Button type="position" onClick={getCurrentPosition}>
+          {isCurrentLocationLoading ? "Loading..." : "Use Your Location"}
+        </Button>
+      )}
       <MapContainer
         className={styles.map}
         center={mapPosition}
@@ -48,6 +70,13 @@ export default function Map() {
             </Popup>
           </Marker>
         ))}
+        {currentPosition.lat && (
+          <Marker position={[currentPosition.lat, currentPosition.lng]}>
+            <Popup>
+              <span>Your Position</span>
+            </Popup>
+          </Marker>
+        )}
         <ChangePosition position={mapPosition} />
         <DetectClick />
       </MapContainer>
