@@ -33,9 +33,13 @@ export default function Map() {
     if (lat && lng) setMapPosition([parseFloat(lat), parseFloat(lng)]);
   }, [lat, lng]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (currentPosition.lat)
+    if (currentPosition.lat) {
       setMapPosition([currentPosition.lat, currentPosition.lng]);
+      navigate(`form?lat=${currentPosition.lat}&lng=${currentPosition.lng}`);
+    }
   }, [currentPosition]);
 
   const isUseCurrentLocationButtonVisible =
