@@ -92,7 +92,7 @@ function Form() {
   if (geoLocErrorMsg) return <Message message={geoLocErrorMsg} />;
 
   return (
-    <form className={`${styles.form} ${isLoadingAddCity && "loading"}`}>
+    <form className={`${styles.form} ${isLoadingAddCity && styles.loading}`}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -111,10 +111,13 @@ function Form() {
           value={date}
         /> */}
         <DatePicker
+          maxDate={new Date()}
+          showTimeSelect
+          showTimeInput
           id="date"
           selected={date}
           onChange={(date) => setDate(date)}
-          dateFormat="dd/MM/yyyy"
+          dateFormat="yyyy-MM-dd HH:mm:ss"
         />
       </div>
 
