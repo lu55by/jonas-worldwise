@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Maoming",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2024-10-19T14:28:19.000Z",
+      "notes": "Absolutely Amazing!",
+      "position": {
+        "lat": 22.50851524027002,
+        "lng": 110.75197320543188
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Shenzhen",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2024-10-09T14:29:43.111Z",
+      "notes": "",
+      "position": {
+        "lat": 22.713157,
+        "lng": 114.237556
+      },
+      "id": 98443199
     }
   ]
 }

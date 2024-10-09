@@ -10,7 +10,7 @@ const Context = createContext();
 
 const URL = "http://localhost:9000";
 
-function CitiesContext({ children }) {
+function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState(false);
@@ -46,8 +46,28 @@ function CitiesContext({ children }) {
     }
   }, []);
 
+  const addCity = useCallback(async (city) => {
+    try {
+      setIsLoading(true);
+      const resp = await fetch(`${URL}/cities`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(city),
+      });
+      const data = await resp.json();
+      setCities((cities) => [...cities, data]);
+      console.log("Added city ->", data);
+    } catch {
+      alert(`Error adding City -> ${city.cityName}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   return (
-    <Context.Provider value={{ cities, isLoading, setCity, currentCity }}>
+    <Context.Provider
+      value={{ cities, isLoading, setCity, currentCity, addCity }}
+    >
       {children}
     </Context.Provider>
   );
@@ -60,4 +80,4 @@ const useCitiesContext = () => {
   return context;
 };
 
-export { CitiesContext, useCitiesContext };
+export { CitiesProvider, useCitiesContext };
