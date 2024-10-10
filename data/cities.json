@@ -49,16 +49,28 @@
       "id": 98443199
     },
     {
-      "cityName": "Newberry Springs-Baker",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2024-01-11T03:00:00.000Z",
-      "notes": "GG2.",
+      "cityName": "Longyan",
+      "country": "China",
+      "emoji": "🇨🇳",
+      "date": "2024-10-10T14:21:11.112Z",
+      "notes": "",
       "position": {
-        "lat": 34.9592083,
-        "lng": -116.419389
+        "lat": 25.916217759086873,
+        "lng": 116.36371586520012
       },
-      "id": 98443206
+      "id": 98443207
+    },
+    {
+      "cityName": "Tudela",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-10-10T14:23:26.915Z",
+      "notes": "",
+      "position": {
+        "lat": 42.01419925413998,
+        "lng": -1.607474957515174
+      },
+      "id": 98443208
     }
   ]
 }
