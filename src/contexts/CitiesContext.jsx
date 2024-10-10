@@ -64,9 +64,25 @@ function CitiesProvider({ children }) {
     }
   }, []);
 
+  const deleteCity = useCallback(async (id) => {
+    const city2Delete = cities.find((c) => c.id === id);
+    try {
+      setIsLoading(true);
+      await fetch(`${URL}/cities/${id}`, {
+        method: "DELETE",
+      });
+      setCities((cities) => cities.filter((c) => c.id !== id));
+      console.log("Deleted city ->", city2Delete.cityName);
+    } catch {
+      alert(`Error deleting City -> ${city2Delete.cityName}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   return (
     <Context.Provider
-      value={{ cities, isLoading, setCity, currentCity, addCity }}
+      value={{ cities, isLoading, setCity, currentCity, addCity, deleteCity }}
     >
       {children}
     </Context.Provider>

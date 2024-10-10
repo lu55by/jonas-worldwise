@@ -65,7 +65,12 @@ function Form() {
     fetchCity();
   }, [lat, lng]);
 
-  const { addCity, isLoading: isLoadingAddCity } = useCitiesContext();
+  const {
+    addCity,
+    isLoading: isLoadingAddCity,
+    cities,
+    deleteCity,
+  } = useCitiesContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -76,7 +81,7 @@ function Form() {
       alert("All fields are required!");
       return;
     }
-    const city = {
+    let city = {
       cityName,
       country,
       emoji,
@@ -84,6 +89,12 @@ function Form() {
       notes,
       position: { lat, lng },
     };
+    // Replace existing specific city properties with this one
+    const existingCity = cities.find((c) => c.cityName === cityName);
+    if (existingCity) {
+      city = { ...existingCity, date, notes };
+      await deleteCity(existingCity.id);
+    }
     await addCity(city);
     navigate("/app");
   };

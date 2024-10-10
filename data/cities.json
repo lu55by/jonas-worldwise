@@ -37,18 +37,6 @@
       "id": 98443197
     },
     {
-      "cityName": "Maoming",
-      "country": "China",
-      "emoji": "🇨🇳",
-      "date": "2024-10-19T14:28:19.000Z",
-      "notes": "Absolutely Amazing!",
-      "position": {
-        "lat": 22.50851524027002,
-        "lng": 110.75197320543188
-      },
-      "id": 98443198
-    },
-    {
       "cityName": "Shenzhen",
       "country": "China",
       "emoji": "🇨🇳",
@@ -61,76 +49,16 @@
       "id": 98443199
     },
     {
-      "cityName": "Yangjiang",
-      "country": "China",
-      "emoji": "🇨🇳",
-      "date": "2024-09-11T14:31:25.000Z",
-      "notes": "",
+      "cityName": "Newberry Springs-Baker",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2024-01-11T03:00:00.000Z",
+      "notes": "GG2.",
       "position": {
-        "lat": 21.9722039310981,
-        "lng": 111.3891656483138
+        "lat": 34.9592083,
+        "lng": -116.419389
       },
-      "id": 98443200
-    },
-    {
-      "cityName": "Fangchenggang Shi",
-      "country": "China",
-      "emoji": "🇨🇳",
-      "date": "2023-11-07T14:36:01.000Z",
-      "notes": "",
-      "position": {
-        "lat": 22.278501275238767,
-        "lng": 108.00539000711244
-      },
-      "id": 98443201
-    },
-    {
-      "cityName": "Huyen Bach Thong",
-      "country": "Viet Nam",
-      "emoji": "🇻🇳",
-      "date": "2024-06-19T14:38:32.000Z",
-      "notes": "",
-      "position": {
-        "lat": 22.21761972545827,
-        "lng": 105.96189796377904
-      },
-      "id": 98443202
-    },
-    {
-      "cityName": "Muang Xon",
-      "country": "Lao People's Democratic Republic (the)",
-      "emoji": "🇱🇦",
-      "date": "2024-06-20T14:39:15.000Z",
-      "notes": "",
-      "position": {
-        "lat": 20.682609874386998,
-        "lng": 103.56688776908462
-      },
-      "id": 98443203
-    },
-    {
-      "cityName": "Monghsat",
-      "country": "Myanmar",
-      "emoji": "🇲🇲",
-      "date": "2024-06-18T14:40:44.000Z",
-      "notes": "",
-      "position": {
-        "lat": 20.519251947674903,
-        "lng": 99.23832583889025
-      },
-      "id": 98443204
-    },
-    {
-      "cityName": "Pu'er City",
-      "country": "China",
-      "emoji": "🇨🇳",
-      "date": "2024-06-12T06:30:00.000Z",
-      "notes": "",
-      "position": {
-        "lat": 23.662778334632186,
-        "lng": 101.17181747031366
-      },
-      "id": 98443205
+      "id": 98443206
     }
   ]
 }
