@@ -10,10 +10,17 @@ const Context = createContext();
 
 const URL = "http://localhost:9000";
 
+const initialState = {
+  cities: [],
+  isLoading: false,
+  currentCity: null,
+};
+function reducer() {}
+
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -32,7 +39,8 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  const setCity = useCallback(async (id) => {
+  const setCurrentCityById = async (id) => {
+    if (currentCity.id === Number(id)) return;
     try {
       setIsLoading(true);
       const resp = await fetch(`${URL}/cities/${id}`);
@@ -44,7 +52,7 @@ function CitiesProvider({ children }) {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  };
 
   const addCity = useCallback(async (city) => {
     try {
@@ -82,7 +90,14 @@ function CitiesProvider({ children }) {
 
   return (
     <Context.Provider
-      value={{ cities, isLoading, setCity, currentCity, addCity, deleteCity }}
+      value={{
+        cities,
+        isLoading,
+        setCurrentCityById,
+        currentCity,
+        addCity,
+        deleteCity,
+      }}
     >
       {children}
     </Context.Provider>
