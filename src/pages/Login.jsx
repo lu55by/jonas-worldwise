@@ -17,7 +17,7 @@ export default function Login() {
     if (!isAuthenticated) return;
     // Redirect to app page if already authenticated
     navigate("/app", { replace: true });
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
