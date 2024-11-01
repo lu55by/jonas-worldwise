@@ -9,4 +9,9 @@ export default defineConfig({
     host: true, // Open to local network and display URL
     port: 5514, // Customize the port number
   },
+  build: {
+    outDir: "../dist", // Output in the dist/ folder
+    emptyOutDir: true, // Empty the folder first
+    sourcemap: true, // Add sourcemap
+  },
 });
